@@ -1,21 +1,15 @@
 import os
-import streamlit as st
 from dotenv import load_dotenv
 
 from ibm_watsonx_ai import Credentials, APIClient
 
 load_dotenv()
 
-try:
-    API_KEY = st.secrets["IBM_API_KEY"]
-    URL = st.secrets["WATSONX_URL"]
-    SPACE_ID = st.secrets["SPACE_ID"]
-    DEPLOYMENT_ID = st.secrets["DEPLOYMENT_ID"]
-except Exception:
-    API_KEY = os.getenv("IBM_API_KEY")
-    URL = os.getenv("WATSONX_URL")
-    SPACE_ID = os.getenv("SPACE_ID")
-    DEPLOYMENT_ID = os.getenv("DEPLOYMENT_ID")
+
+API_KEY = os.getenv("IBM_API_KEY")
+URL = os.getenv("WATSONX_URL")
+SPACE_ID = os.getenv("SPACE_ID")
+DEPLOYMENT_ID = os.getenv("DEPLOYMENT_ID")
 
 
 def get_farming_advice(question):
